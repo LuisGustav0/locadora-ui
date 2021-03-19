@@ -1,0 +1,42 @@
+<mat-sidenav-container>
+    <mat-sidenav
+            class="sidenav"
+            mode="side"
+            opened
+            fixedInViewport
+            fixedTopGap="65">
+        <mat-nav-list>
+            <a mat-list-item
+               routerLink="/">
+                <i class="material-icons">
+                    home
+                </i>
+
+                Início
+            </a>
+
+            <a mat-list-item
+               routerLink="/filmes/new">
+                <i class="material-icons">
+                    article
+                </i>
+
+                Cadastro de filme
+            </a>
+
+            <a mat-list-item
+               routerLink="/filmes">
+                <i class="material-icons">
+                    search
+                </i>
+
+                Lista de filme
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content
+            class="content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

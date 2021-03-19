@@ -1,0 +1,174 @@
+<mat-card>
+    <mat-card-title>
+        <div class="row">
+            <div class="col-lg-10">
+                Cadastro de filme
+            </div>
+
+            <div class="col-lg-2">
+                <div class="form-icon-right">
+                    <mat-icon aria-hidden="false"
+                              (click)="service.goToSearch()"
+                              aria-label="Example home icon">
+                        search
+                    </mat-icon>
+                </div>
+            </div>
+        </div>
+    </mat-card-title>
+
+    <form>
+        <div class="row">
+            <div class="col-lg-3">
+                <label for="codigo"
+                       class="form-label">
+                    Código
+                </label>
+
+                <input
+                        id="codigo"
+                        name="codigo"
+                        class="form-control"
+                        type="text"
+                        disabled
+                        pInputText
+                        [(ngModel)]="service.entity.id"/>
+            </div>
+
+            <div class="col-lg-6">
+                <label for="nome"
+                       class="form-label">
+                    Nome
+                </label>
+
+                <input
+                        id="nome"
+                        name="nome"
+                        class="form-control"
+                        type="text"
+                        pInputText
+                        [(ngModel)]="service.entity.nome"/>
+            </div>
+
+            <div class="col-lg-3">
+                <label for="ano"
+                       class="form-label">
+                    Ano
+                </label>
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input id="ano"
+                                   name="ano"
+                                   type="text"
+                                   class="form-control"
+                                   bsDatepicker
+                                   #dp="bsDatepicker"
+                                   [bsConfig]="{ dateInputFormat: 'YYYY',  minMode : 'year' }">
+                            <div class="input-group-btn">
+                                <button class="btn btn-primary"
+                                        (click)="dp.show()"
+                                        [attr.aria-expanded]="dp.isOpen"
+                                        type="button">
+                                    <em class="pi pi-calendar"></em>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="diretor"
+                       class="form-label">
+                    Diretor
+                </label>
+
+                <input
+                        id="diretor"
+                        name="diretor"
+                        class="form-control"
+                        type="text"
+                        pInputText
+                        [(ngModel)]="service.entity.diretor"/>
+            </div>
+
+            <div class="col-lg-6">
+                <label for="posterUrl"
+                       class="form-label">
+                    Url
+                </label>
+
+                <input
+                        id="posterUrl"
+                        name="posterUrl"
+                        class="form-control"
+                        type="text"
+                        pInputText
+                        [(ngModel)]="service.entity.posterUrl"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="genero"
+                       class="form-label">
+                    Gênero
+                </label>
+
+                <input
+                        id="genero"
+                        name="genero"
+                        class="form-control"
+                        type="text"
+                        pInputText
+                        [(ngModel)]="service.entity.genero"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <label for="descricao"
+                       class="form-label">
+                    Descrição
+                </label>
+
+                <textarea
+                        id="descricao"
+                        name="descricao"
+                        class="form-control"
+                        type="text"
+                        pInputTextarea
+                        rows="5"
+                        cols="30"
+                        autoResize="autoResize"
+                        [(ngModel)]="service.entity.descricao">
+                </textarea>
+            </div>
+        </div>
+    </form>
+
+    <mat-card-actions>
+        <div class="card-actions">
+            <button mat-raised-button
+                    color="primary"
+                    (click)="service.$save()">
+                Salvar
+            </button>
+
+            <button mat-raised-button
+                    color="accent"
+                    (click)="service.clean()">
+                Limpar
+            </button>
+
+            <button mat-raised-button
+                    style="margin-left: -1px"
+                    color="warn"
+                    [disabled]="!this.service.entity.id"
+                    (click)="service.$delete(this.service.entity)">
+                Excluir
+            </button>
+        </div>
+    </mat-card-actions>
+</mat-card>
