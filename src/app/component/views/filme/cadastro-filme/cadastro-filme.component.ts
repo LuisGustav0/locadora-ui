@@ -20,7 +20,7 @@ export class CadastroFilmeComponent {
     this.service.changeTitle({
       title: 'Cadastro de filme',
       icon: 'article',
-      routeUrl: '/filmes'
+      routeUrl: '/filmes/new'
     });
   }
 }

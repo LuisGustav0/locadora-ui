@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FilmeService } from '../filme.service'
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-pesquisa-filme',
@@ -22,5 +23,11 @@ export class PesquisaFilmeComponent implements OnInit {
 
   ngOnInit (): void {
     this.service.search();
+  }
+
+  formatDateToAno (date: Date) {
+    const ano = moment(date);
+
+    return ano.year();
   }
 }

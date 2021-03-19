@@ -76,14 +76,11 @@ export class FilmeService {
     if (!id) {
       this.save(this.entity).subscribe((entity: Filme) => {
         this.getAlertMessage().showOk('Filme criado com sucesso!');
-
-        this.entity = entity;
+        this.entity.id = entity.id;
       });
     } else {
-      this.update(id, this.entity).subscribe((entity) => {
-        this.getAlertMessage().showOk('Filme alterado com sucesso!');
-        this.entity = entity;
-      });
+      this.update(id, this.entity)
+        .subscribe(() => this.getAlertMessage().showOk('Filme alterado com sucesso!'));
     }
   }
 
@@ -118,7 +115,9 @@ export class FilmeService {
         });
       }
     });
+  }
 
-
+  getLengthProvider () {
+    return this.provider ? this.provider.length : 0;
   }
 }

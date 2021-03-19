@@ -2,7 +2,7 @@ export class Filme {
 
   id?: number;
   nome: string;
-  ano: string;
+  ano: Date;
   diretor: string;
   genero: string;
   descricao: string;

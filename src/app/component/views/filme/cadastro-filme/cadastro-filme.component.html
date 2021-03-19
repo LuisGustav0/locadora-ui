@@ -65,7 +65,8 @@
                                    class="form-control"
                                    bsDatepicker
                                    #dp="bsDatepicker"
-                                   [bsConfig]="{ dateInputFormat: 'YYYY',  minMode : 'year' }">
+                                   [bsConfig]="{ dateInputFormat: 'YYYY',  minMode : 'year' }"
+                                   [(ngModel)]="service.entity.ano"/>
                             <div class="input-group-btn">
                                 <button class="btn btn-primary"
                                         (click)="dp.show()"

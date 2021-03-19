@@ -15,7 +15,7 @@ export class HttpClientService {
     return `${this.baseUrl}/${resource}`;
   }
 
-  private getUrlUpdate (resource: string, id: number): string {
+  private getUrlUpdate (id: number, resource: string): string {
     return `${this.baseUrl}/${resource}/${id}`;
   }
 
@@ -34,9 +34,9 @@ export class HttpClientService {
   }
 
   put (resource: string, id: number, entity: any): Observable<any> {
-    const url = this.getUrlUpdate(resource, id);
+    const url = this.getUrlUpdate(id, resource);
 
-    return this.http.post(url, entity);
+    return this.http.put(url, entity);
   }
 
   delete (resource: string, id: number): Observable<any> {

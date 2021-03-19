@@ -41,7 +41,7 @@
                         </button>
                     </td>
                     <td>{{filme.nome}}</td>
-                    <td>{{filme.ano}}</td>
+                    <td>{{formatDateToAno(filme.ano)}}</td>
                     <td>{{filme.diretor}}</td>
                     <td>{{filme.genero}}</td>
                     <td>
@@ -100,7 +100,7 @@
 
     <mat-card-actions>
         <div style="float: right; margin-top: -15px;">
-            <span>Total Registro: {{service.provider.length}}</span>
+            <span>Total Registro: {{service.getLengthProvider()}}</span>
         </div>
     </mat-card-actions>
 </mat-card>
